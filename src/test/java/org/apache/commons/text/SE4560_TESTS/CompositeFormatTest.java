@@ -14,7 +14,7 @@ import static org.junit.jupiter.api.Assertions.*;
 
 public class CompositeFormatTest {
 
-    
+
     // Unit test
     @Test
     public void testReformat() throws ParseException {
