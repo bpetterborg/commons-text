@@ -4,6 +4,8 @@ import java.io.UnsupportedEncodingException;
 
 import org.apache.commons.text.AlphabetConverter;
 import static org.junit.jupiter.api.Assertions.*;
+
+import org.junit.jupiter.api.Test;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.CsvSource;
 
@@ -33,6 +35,15 @@ public class AlphabetConverterTest {
         assertEquals(expectedChar, converter.encode(inputChar));
     }
 
+    @Test
+    public void testEquality() {
+        Character[] originals = {'a', 'b', 'c', 'd'};
+        Character[] encoding = {'0', '1', '2'};
+        Character[] doNotEncode = {'d'};
 
+        AlphabetConverter converter1 = AlphabetConverter.createConverterFromChars(originals, encoding, doNotEncode);
+        AlphabetConverter converter2 = AlphabetConverter.createConverterFromChars(originals, encoding, doNotEncode);
+        assertEquals(converter1, converter2); // same input so same result should occur
+    }
 
 }
