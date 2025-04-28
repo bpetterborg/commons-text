@@ -28,4 +28,14 @@ public class CaseUtilsTest {
         assertNull(CaseUtils.toCamelCase(null, false));
     }
 
+    @Test
+    void testToCamelCaseMultipleDelimiters() {
+        String input = "hello--world---again";
+        char[] delimiters = {'-', ' '};
+        String expected = "helloWorldAgain";
+        String actual = CaseUtils.toCamelCase(input, false, delimiters);
+        assertEquals(expected, actual, "Expected 'helloWorldAgain' but got " + actual);
+    }
+
+
 }
